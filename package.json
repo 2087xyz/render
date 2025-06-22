@@ -1,6 +1,6 @@
 {
-  "dependencies": {
-    "express-session": "^1.18.1"
+  "dependencies": 
+    "express": "^5.1.0"
   },
   "name": "web",
   "version": "1.0.0",
