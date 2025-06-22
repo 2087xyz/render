@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head><title>Lizenz-Verwaltung</title></head>
+<body>
+<h1>🔑 Lizenzverwaltung</h1>
+<form action="/add" method="POST">
+<input type="text" name="key" placeholder="Neue Lizenz eingeben" required />
+<button type="submit">➕ Hinzufügen</button>
+</form>
+<ul>
+/<% licenses.forEach(function(key) { %>
+<li>
+<%= key %>
+<form action="/remove" method="POST" style="display:inline;">
+  <input type="hidden" name="key" value="<%= key %>" />
+  <button type="submit">❌ Löschen</button>
+</form>
+</li>
+<% }) %>
+</ul>
+</body>
+</html>
+
+<!-- Füge das in deine index.ejs ein, z.B. über der Lizenzliste -->
+<form action="/generate" method="POST" style="margin-bottom:20px;">
+  <button type="submit">Neuen Lizenz-Key generieren</button>
+</form>
+
+<% if (generatedKey) { %>
+  <div style="color:green;">Neuer Key: <b><%= generatedKey %></b></div>
+<% } %>
